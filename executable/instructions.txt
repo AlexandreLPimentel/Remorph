@@ -1,0 +1,8 @@
+To run the game, simply open Remorph.exe. Note that every time you run the game, restart or finish, a file will be created in this folder with logging data.
+I don't think it's necessary, but if you get any error about a missing DLL or library, try installing vcredist:
+
+2010: https://www.microsoft.com/en-us/download/details.aspx?id=5555
+and/or
+2015: https://www.microsoft.com/en-us/download/details.aspx?id=52685
+
+The game is compiled in 32 bits so it should work on older computers and operating systems too.
