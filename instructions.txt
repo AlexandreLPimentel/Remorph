@@ -1,0 +1,6 @@
+This is a Unity project. It was created using version 5.6.1f1 but it should be backwards-compatible with at least version 5.5. Later versions always work, though the imports get messed up a bit, so take that into account.
+To open it, go into the Assets folder and open prototypingScene.unity. This is the only scene and it's empty since levels are generated in runtime. It will take a while launching because it will need to create the Library folder.
+To check the levels, go to Assets/Resources/Levels.
+To check the assets, it's better to launch Unity and go to the Project tab and then into the Resources folder.
+To check the C# code, go to Assets/Scripts.
+Note that GhostFreeRoam is not developed by me and was used only during early stages of development to fly around the level.
