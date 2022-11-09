@@ -497,14 +497,14 @@ public class LevelControl : MonoBehaviour
                     break;
             }
 
-            char originType = levelLayout[(int) currentPosition.x, (int) currentPosition.y, (int) currentPosition.z].getShape();
-            char destinationType = levelLayout[(int) newPosition.x, (int) newPosition.y, (int) newPosition.z].getShape();
+            MyDictionary.Platform originType = levelLayout[(int) currentPosition.x, (int) currentPosition.y, (int) currentPosition.z].getShape();
+            MyDictionary.Platform destinationType = levelLayout[(int) newPosition.x, (int) newPosition.y, (int) newPosition.z].getShape();
             string animation;
-            if(destinationType == MyDictionary.PLATFORM_STAIRS && originType != MyDictionary.PLATFORM_HIGH)
+            if(destinationType == MyDictionary.Platform.Stairs && originType != MyDictionary.Platform.High)
             {
                 animation = "MoveUp";
             }
-            else if (originType == MyDictionary.PLATFORM_RAMP && destinationType != MyDictionary.PLATFORM_HIGH)
+            else if (originType == MyDictionary.Platform.Ramp && destinationType != MyDictionary.Platform.High)
             {
                 animation = "MoveDown";
             }
@@ -659,20 +659,20 @@ public class LevelControl : MonoBehaviour
 
         LevelEntity originTile = levelLayout[(int)origin.x, (int)origin.y, (int)origin.z];
 
-        if(originTile.getShape() == MyDictionary.PLATFORM_STAIRS && destinationTile.getShape() == MyDictionary.PLATFORM_LOW)
+        if(originTile.getShape() == MyDictionary.Platform.Stairs && destinationTile.getShape() == MyDictionary.Platform.Low)
         {
             return null;
         }
 
-        if ((originTile.getShape() == MyDictionary.PLATFORM_HIGH && destinationTile.getShape() == MyDictionary.PLATFORM_LOW)
-            || (originTile.getShape() == MyDictionary.PLATFORM_LOW && destinationTile.getShape() == MyDictionary.PLATFORM_HIGH)
-            || (originTile.getShape() == MyDictionary.PLATFORM_START && destinationTile.getShape() == MyDictionary.PLATFORM_HIGH)
-            || (destinationTile.getShape() == MyDictionary.PLATFORM_END && destinationTile.getShape() == MyDictionary.PLATFORM_HIGH))
+        if ((originTile.getShape() == MyDictionary.Platform.High && destinationTile.getShape() == MyDictionary.Platform.Low)
+            || (originTile.getShape() == MyDictionary.Platform.Low&& destinationTile.getShape() == MyDictionary.Platform.High)
+            || (originTile.getShape() == MyDictionary.Platform.Start&& destinationTile.getShape() == MyDictionary.Platform.High)
+            || (destinationTile.getShape() == MyDictionary.Platform.End && destinationTile.getShape() == MyDictionary.Platform.High))
         {
             return null;
         }
 
-        if(character.getShape() != MyDictionary.SHAPE_SPHERE && originTile.getShape() == MyDictionary.PLATFORM_RAMP)
+        if(character.getShape() != MyDictionary.SHAPE_SPHERE && originTile.getShape() == MyDictionary.Platform.Ramp)
         {
             return null;
         }
@@ -700,7 +700,7 @@ public class LevelControl : MonoBehaviour
             return null;
         }
         
-        if (destinationTile.canBeWalkedBy(shape) && destinationTile.canEnterFrom(direction))
+        if (destinationTile.canBeWalkedBy(shape) && destinationTile.canEnterFrom(direction) && originTile.canExitTo(direction))
         {
             return destinationTile.getPlacementHeight();
         }
@@ -713,7 +713,7 @@ public class LevelControl : MonoBehaviour
         characterPosition.x = (int)characterPosition.x;
         characterPosition.y = (int)characterPosition.y;
         characterPosition.z = (int)characterPosition.z;
-        if (levelLayout[(int)characterPosition.x, (int)characterPosition.y, (int)characterPosition.z].getShape() == MyDictionary.PLATFORM_END)
+        if (levelLayout[(int)characterPosition.x, (int)characterPosition.y, (int)characterPosition.z].getShape() == MyDictionary.Platform.End)
         {
             currentLevel++;
             if (currentLevel > 12)

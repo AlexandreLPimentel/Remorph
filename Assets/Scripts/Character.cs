@@ -30,8 +30,8 @@ public class Character {
         map.Add(MyDictionary.SHAPE_SPHERE, Resources.Load("Sphere", typeof(GameObject)) as GameObject);
         map.Add(MyDictionary.SHAPE_CROSS, Resources.Load("Cross", typeof(GameObject)) as GameObject);
         map.Add(MyDictionary.SHAPE_CYLINDER_CROSS, Resources.Load("CylinderCross", typeof(GameObject)) as GameObject);
-        map.Add(MyDictionary.SHAPE_PYRAMID, Resources.Load("Pyramid", typeof(GameObject)) as GameObject);
-        map.Add(MyDictionary.SHAPE_STICK, Resources.Load("Stick", typeof(GameObject)) as GameObject);
+        //map.Add(MyDictionary.SHAPE_PYRAMID, Resources.Load("Pyramid", typeof(GameObject)) as GameObject);
+        //map.Add(MyDictionary.SHAPE_STICK, Resources.Load("Stick", typeof(GameObject)) as GameObject);
         myShape = MyDictionary.SHAPE_CUBE;
     }
 
